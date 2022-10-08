@@ -1,0 +1,35 @@
+* c:\users\jagad\desktop\esim\test\test.cir
+
+.include 1blpfadd42.sub
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__inductors.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__r+c.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__pnp.model.spice"
+.lib "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130.lib.spice" tt
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__linear.model.spice"
+* u1  net-_u1-pad1_ net-_u1-pad2_ net-_u1-pad3_ buf12
+* u2  net-_sc1-pad2_ net-_u1-pad1_ adc_bridge_1
+* u3  net-_u1-pad2_ net-_u1-pad3_ net-_u3-pad3_ net-_u3-pad4_ dac_bridge_2
+v1 net-_sc1-pad2_ gnd  dc 0
+xsc1 gnd net-_sc1-pad2_ net-_sc1-pad2_ ? sky130_fd_pr__pfet_01v8 W=1 L=1
+x1 net-_u3-pad3_ net-_u3-pad4_ ? ? ? ? 1blpfadd42
+* s c m o d e
+a1 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [net-_u1-pad3_ ] u1
+a2 [net-_sc1-pad2_ ] [net-_u1-pad1_ ] u2
+a3 [net-_u1-pad2_ net-_u1-pad3_ ] [net-_u3-pad3_ net-_u3-pad4_ ] u3
+* Schematic Name:                             buf12, NgSpice Name: buf12
+.model u1 buf12(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             adc_bridge_1, NgSpice Name: adc_bridge
+.model u2 adc_bridge(in_low=0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 ) 
+* Schematic Name:                             dac_bridge_2, NgSpice Name: dac_bridge
+.model u3 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+.tran 1e-03 50e-03 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end

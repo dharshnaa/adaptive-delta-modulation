@@ -1,0 +1,39 @@
+* C:\Users\jagad\Desktop\ESIM\test\test.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/08/22 19:56:55
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+U1  Net-_U1-Pad1_ Net-_U1-Pad2_ GND ? 74LS14		
+X1  ? Net-_U1-Pad2_ Net-_R1-Pad2_ Net-_X1-Pad4_ ? Net-_R3-Pad1_ Net-_X1-Pad7_ ? lm_741		
+U4  ? ? ? ? ? ? ? ? ? ? Net-_R6-Pad2_ Net-_R10-Pad1_ Net-_R10-Pad1_ Net-_R4-Pad2_ Net-_R5-Pad2_ ? 4052		
+R4  Net-_R10-Pad1_ Net-_R4-Pad2_ resistor		
+R5  Net-_R4-Pad2_ Net-_R5-Pad2_ resistor		
+R6  Net-_R5-Pad2_ Net-_R6-Pad2_ resistor		
+R7  Net-_R6-Pad2_ Net-_R3-Pad2_ resistor		
+R1  Net-_R1-Pad1_ Net-_R1-Pad2_ resistor		
+R2  Net-_R1-Pad2_ Net-_R2-Pad2_ resistor		
+X2  ? Net-_R10-Pad1_ Net-_R11-Pad1_ Net-_X2-Pad4_ ? Net-_R10-Pad1_ Net-_X2-Pad7_ ? lm_741		
+X3  ? Net-_C1-Pad1_ Net-_R11-Pad1_ Net-_X2-Pad4_ ? output Net-_X2-Pad7_ ? lm_741		
+R12  Net-_C2-Pad2_ Net-_R10-Pad1_ resistor		
+R9  Net-_C2-Pad2_ Net-_C1-Pad1_ resistor		
+C2  output Net-_C2-Pad2_ capacitor		
+R11  Net-_R11-Pad1_ output resistor		
+R8  GND Net-_R11-Pad1_ resistor		
+C1  Net-_C1-Pad1_ GND capacitor		
+U2  Net-_U2-PadIN_ Net-_R3-Pad2_ zener		
+U3  Net-_U2-PadIN_ GND zener		
+R3  Net-_R3-Pad1_ Net-_R3-Pad2_ resistor		
+R10  Net-_R10-Pad1_ Net-_R10-Pad1_ resistor		
+v5  Net-_X1-Pad7_ GND DC		
+v4  GND Net-_X1-Pad4_ DC		
+v6  Net-_X2-Pad7_ GND DC		
+v7  GND Net-_X2-Pad4_ DC		
+v2  Net-_R1-Pad1_ GND DC		
+v1  GND Net-_R2-Pad2_ DC		
+v3  Net-_U1-Pad1_ GND pulse		
+U5  output plot_db		
+
+.end
